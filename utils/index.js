@@ -62,7 +62,7 @@ export function deepClone(sth) {
   if (isKeyType(sth, 'object')) {
     copy = {};
     for (let attr in sth) {
-      if (sth.hasOwnProperty(attr)) copy[attr] = deepClone(sth[attr]);
+      if (Object.prototype.hasOwnProperty.call(sth, attr)) copy[attr] = deepClone(sth[attr]);
     }
     return copy;
   }
