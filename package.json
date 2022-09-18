@@ -1,0 +1,15 @@
+{
+  "name": "zhihu-post",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "node index.js"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "cheerio": "^1.0.0-rc.12",
+    "fs-extra": "^10.1.0"
+  }
+}
