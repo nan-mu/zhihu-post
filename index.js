@@ -2,8 +2,7 @@ import fs from "fs-extra";
 import { load } from "cheerio";
 import { join, resolve } from "path";
 import turndownService from "turndown";
-import { deepClone } from "./utils/index.js"
-import Service from "./utils/service.js"
+import Service from "./service.js";
 
 const __dirname = resolve();
 const { outputFile, readFile } = fs;
@@ -15,7 +14,7 @@ const author = root_url.replace("https://www.zhihu.com/people/", "").replace("/p
 
 const once_req = async () => {
     try {
-        let data = deepClone(await Service({ url: root_url }));
+        let data = await Service({ url: root_url });
         await to_file("temp/once_file.html", data, "finish once req and save in temp/once_file.html");
     } catch (error) {
         console.error(error);
@@ -58,7 +57,7 @@ const get_art = async (page) => {
         let art_id = (reg_1.exec(await readFile(join(__dirname, "temp/t_page.json"), "utf8")))[0].match(reg_2);
         let art_data, art_$, context, title;
         for (let i = 0; i < art_id.length; i++) {
-            art_data = await Service({ url: `${art_url}${art_id[i]}` });//.Post-RichTextContainer .css-1yuhvjn div
+            art_data = await Service({ url: `${art_url}${art_id[i]}` });
             await to_file("temp/t_page.html", art_data, false);
             art_$ = load(await readFile(join(__dirname, "temp/t_page.html"), "utf8"));
             title = art_$(".Post-Header h1").text().replace("/", "或");
