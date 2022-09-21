@@ -9,12 +9,12 @@ const Service = axios.create({
 });
 // 添加请求拦截器
 Service.interceptors.request.use(config => {
-    console.log("hint: Loading...");
+    //console.log("hint: Loading...");
     return config;
 });
 // 添加响应拦截器
 Service.interceptors.response.use(response => {
-    console.log("hint: response arrived");
+    //console.log("hint: response arrived");
     return response.data;
 }, error => {
     console.log('TCL: error', error);

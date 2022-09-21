@@ -1,0 +1,20 @@
+{
+    "fetchRoot": {
+        "www": "https:\u002F\u002Fwww.zhihu.com",
+        "api": "https:\u002F\u002Fapi.zhihu.com",
+        "lens": "https:\u002F\u002Flens.zhihu.com",
+        "zhuanlan": "https:\u002F\u002Fzhuanlan.zhihu.com",
+        "walletpay": "https:\u002F\u002Fwalletpay.zhihu.com",
+        "captcha": "https:\u002F\u002Fcaptcha.zhihu.com",
+        "vzuu": "https:\u002F\u002Fv.vzuu.com",
+        "openapi": "https:\u002F\u002Fopenapi.zhihu.com",
+        "svip": "https:\u002F\u002Fsvip.zhihu.com"
+    },
+    "host": "zhihu.com",
+    "protocol": "https:",
+    "wwwHost": "www.zhihu.com",
+    "videoHost": "video.zhihu.com",
+    "allowSignUp": true,
+    "refreshValidityPeriod": "30",
+    "refreshLimit": "0.1"
+}

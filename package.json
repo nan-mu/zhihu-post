@@ -10,6 +10,7 @@
   "dependencies": {
     "axios": "^0.27.2",
     "cheerio": "^1.0.0-rc.12",
-    "fs-extra": "^10.1.0"
+    "fs-extra": "^10.1.0",
+    "turndown": "^7.1.1"
   }
 }
