@@ -11,6 +11,7 @@ const tds = new turndownService();
 
 const root_url = "https://www.zhihu.com/people/maluyelang666/posts";
 const art_url = "https://zhuanlan.zhihu.com/p/";
+const author = root_url.replace("https://www.zhihu.com/people/", "").replace("/posts", "");
 
 const once_req = async () => {
     try {
@@ -55,11 +56,12 @@ const get_art = async (page) => {
         let $ = load(await readFile(join(__dirname, "temp/t_page.html"), "utf8"));
         await to_file("temp/t_page.json", $("#js-initialData").text(), false);
         let art_id = (reg_1.exec(await readFile(join(__dirname, "temp/t_page.json"), "utf8")))[0].match(reg_2);
-        let art_data, art_$, context;
+        let art_data, art_$, context, title;
         for (let i = 0; i < art_id.length; i++) {
             art_data = await Service({ url: `${art_url}${art_id[i]}` });//.Post-RichTextContainer .css-1yuhvjn div
             await to_file("temp/t_page.html", art_data, false);
             art_$ = load(await readFile(join(__dirname, "temp/t_page.html"), "utf8"));
+            title = art_$(".Post-Header h1").text().replace("/", "或");
             art_$ = load(art_$(".Post-RichTextContainer .css-1yuhvjn div").html());
             art_$("p").removeAttr("data-pid");
             art_$(".ztext-empty-paragraph").remove();
@@ -73,7 +75,7 @@ const get_art = async (page) => {
             });
             art
             //art_$("figure").remove();
-            await to_file(`public/${page}/${i}.md`, tds.turndown(art_$.html()), false);
+            await to_file(`public/${author}/${title}_${page}_${i}.md`, tds.turndown(art_$.html()), `found a art: ${title}_${page}_${i}.md`);
         }
     } catch (error) {
         console.error(error);
