@@ -8,7 +8,7 @@ const __dirname = resolve();
 const { outputFile, readFile } = fs;
 const tds = new turndownService();
 
-const root_url = "https://www.zhihu.com/people/maluyelang666/posts";
+const root_url = "https://www.zhihu.com/org/xin-heng-she-ji-shi-ju-le-bu/posts";
 const art_url = "https://zhuanlan.zhihu.com/p/";
 const author = root_url.replace("https://www.zhihu.com/people/", "").replace("https://www.zhihu.com/org/", "").replace("/posts", "");
 
