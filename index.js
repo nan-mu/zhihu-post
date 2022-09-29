@@ -10,7 +10,7 @@ const tds = new turndownService();
 
 const root_url = "https://www.zhihu.com/people/maluyelang666/posts";
 const art_url = "https://zhuanlan.zhihu.com/p/";
-const author = root_url.replace("https://www.zhihu.com/people/", "").replace("/posts", "");
+const author = root_url.replace("https://www.zhihu.com/people/", "").replace("https://www.zhihu.com/org/", "").replace("/posts", "");
 
 const once_req = async () => {
     try {
