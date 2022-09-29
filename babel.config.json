@@ -5,6 +5,12 @@
             {
                 "modules": "commonjs"
             }
+        ],
+        [
+            "minify",
+            {
+                "keepFnName": false
+            }
         ]
     ]
 }
