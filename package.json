@@ -1,16 +1,33 @@
 {
-  "name": "zhihu-post",
-  "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
-  "type": "module",
-  "scripts": {
-    "dev": "node index.js"
-  },
-  "dependencies": {
-    "axios": "^0.27.2",
-    "cheerio": "^1.0.0-rc.12",
-    "fs-extra": "^10.1.0",
-    "turndown": "^7.1.1"
-  }
+    "name": "zhihu-post",
+    "version": "1.0.0",
+    "main": "src/index.js",
+    "bin": "dist/es5/index.js",
+    "license": "MIT",
+    "type": "module",
+    "scripts": {
+        "dev": "node index.js",
+        "pkg": "pkg . -t win --out-path=dist/",
+        "turn": "babel src -d ./dist/es5",
+        "build": "yarn turn && yarn pkg"
+    },
+    "pkg": {
+        "scripts": "*.js",
+        "options": [
+            "experimental-modules"
+        ]
+    },
+    "dependencies": {
+        "axios": "^0.27.2",
+        "cheerio": "^1.0.0-rc.12",
+        "fs-extra": "^10.1.0",
+        "pkg": "^5.8.0",
+        "turndown": "^7.1.1"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.19.3",
+        "@babel/core": "^7.19.3",
+        "@babel/plugin-transform-arrow-functions": "^7.18.6",
+        "@babel/preset-env": "^7.19.3"
+    }
 }
