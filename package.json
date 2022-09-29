@@ -7,7 +7,7 @@
     "type": "module",
     "scripts": {
         "dev": "node index.js",
-        "pkg": "pkg . -t win --out-path=dist/",
+        "pkg": "pkg . -t win --out-path=dist/ -C Brotli",
         "turn": "babel src -d ./dist/es5 --no-comments",
         "build": "yarn turn && yarn pkg"
     },
